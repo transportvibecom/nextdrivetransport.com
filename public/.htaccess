@@ -1,0 +1,103 @@
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+	
+	
+	#2023-11-22
+	RewriteRule ^services/car\-transport$ https://broadwayautotransport.com/services/car-transport-service [R=301,QSD,L]
+RewriteRule ^services/door\-to\-door\-car\-shipping$ https://broadwayautotransport.com/services/door-to-door-auto-transport-service [R=301,QSD,L]
+RewriteRule ^services/open\-trailer\-car\-shipping$ https://broadwayautotransport.com/services/open-transport-car-shipping [R=301,QSD,L]
+RewriteRule ^enclosed\-car\-shipping/$ https://broadwayautotransport.com/services/enclosed-car-shipping [R=301,QSD,L]
+RewriteRule ^car\-shipping\-tips\-for\-students/$ https://broadwayautotransport.com/blog/car-shipping-tips-for-students [R=301,QSD,L]
+RewriteRule ^rv\-transport\-service/$ https://broadwayautotransport.com/services [R=301,QSD,L]
+RewriteRule ^heavy\-equipment\-shipment/$ https://broadwayautotransport.com/services/heavy-equipment-shipment [R=301,QSD,L]
+RewriteRule ^boat\-shipping/$ https://broadwayautotransport.com/services/boat-shipping [R=301,QSD,L]
+RewriteRule ^open\-trailer\-car\-shipping/$ https://broadwayautotransport.com/services/open-transport-car-shipping [R=301,QSD,L]
+RewriteRule ^car\-shipping\-insurance/$ https://broadwayautotransport.com/services/car-transport-service [R=301,QSD,L]
+RewriteRule ^motorcycle\-shipping/$ https://broadwayautotransport.com/services/motorcycle-shipping [R=301,QSD,L]
+RewriteRule ^moving\-home/$ https://broadwayautotransport.com/services [R=301,QSD,L]
+RewriteRule ^local\-and\-international\-shipping/$ https://broadwayautotransport.com/services [R=301,QSD,L]
+RewriteRule ^expedited\-car\-shipping/$ https://broadwayautotransport.com/services [R=301,QSD,L]
+RewriteRule ^door\-to\-door\-car\-shipping/$ https://broadwayautotransport.com/services/door-to-door-auto-transport-service [R=301,QSD,L]
+RewriteRule ^car\-transport/$ https://broadwayautotransport.com/services/car-transport-service [R=301,QSD,L]
+RewriteRule ^car\-shipping/$ https://broadwayautotransport.com/services/car-transport-service [R=301,QSD,L]
+RewriteRule ^why\-khalif\-auto\-shipping/$ https://broadwayautotransport.com/services [R=301,QSD,L]
+RewriteRule ^about\-khalif\-car\-shipping/$ https://broadwayautotransport.com/services [R=301,QSD,L]
+RewriteRule ^car\-transport\-service/$ https://broadwayautotransport.com/services/car-transport-service [R=301,QSD,L]
+RewriteRule ^car\-shipping\-prices$ https://broadwayautotransport.com/ [R=301,QSD,L]
+RewriteRule ^blog\-about\-car\-shipping$ https://broadwayautotransport.com/blog [R=301,QSD,L]
+RewriteRule ^easy\-car\-shipping\-for\-your\-need/$ https://broadwayautotransport.com/blog [R=301,QSD,L]
+RewriteRule ^how\-to\-prepare\-a\-car\-to\-ship/$ https://broadwayautotransport.com/blog [R=301,QSD,L]
+RewriteRule ^car\-transport\-services/$ https://broadwayautotransport.com/services/car-transport-service [R=301,QSD,L]
+RewriteRule ^why\-broadway\-auto\-transport/$ https://broadwayautotransport.com/about-us [R=301,QSD,L]
+RewriteRule ^cheap\-motorcycle\-shipping\-across\-states\-with\-khalif\-auto\-shipping/$ https://broadwayautotransport.com/services/motorcycle-shipping [R=301,QSD,L]
+RewriteRule ^blog\-about\-car\-shipping/$ https://broadwayautotransport.com/blog [R=301,QSD,L]
+RewriteRule ^car\-shipping\-from\-new\-york\-to\-california/$ https://broadwayautotransport.com/top-destination [R=301,QSD,L]
+RewriteRule ^california\-car\-shipping/$ https://broadwayautotransport.com/top-destination [R=301,QSD,L]
+RewriteRule ^car\-shipping\-for\-college\-students/$ https://broadwayautotransport.com/blog/car-shipping-tips-for-students [R=301,QSD,L]
+RewriteRule ^steps\-to\-prepare\-a\-car\-to\-ship/$ https://broadwayautotransport.com/blog/steps-to-prepare-a-car-to-ship [R=301,QSD,L]
+RewriteRule ^why\-lowest\-quote\-is\-not\-the\-best\-option/$ https://broadwayautotransport.com/blog [R=301,QSD,L]
+RewriteRule ^motorcycle\-shipping\-tips\-2/$ https://broadwayautotransport.com/services/motorcycle-shipping [R=301,QSD,L]
+RewriteRule ^rv\-transport\-from\-california/$ https://broadwayautotransport.com/top-destination [R=301,QSD,L]
+RewriteRule ^best\-places\-to\-visit\-in\-texas\-in\-2023/$ https://broadwayautotransport.com/blog [R=301,QSD,L]
+RewriteRule ^car\-dealership\-customer\-retentions/$ https://broadwayautotransport.com/services/car-transport-service [R=301,QSD,L]
+RewriteRule ^seasonal\-relocation/$ https://broadwayautotransport.com/top-destination [R=301,QSD,L]
+RewriteRule ^car\-shipping\-for\-auto\-dealerships/$ https://broadwayautotransport.com/services/car-transport-service [R=301,QSD,L]
+RewriteRule ^motorcycle\-shipping\-tips/$ https://broadwayautotransport.com/blog/motorcycle-shipping-tips [R=301,QSD,L]
+RewriteRule ^open\-enclosed\-motorcycle\-transport/$ https://broadwayautotransport.com/blog/open-enclosed-motorcycle-transport [R=301,QSD,L]
+RewriteRule ^heavy\-equipment\-shipping\-tips/$ https://broadwayautotransport.com/services/heavy-equipment-shipment [R=301,QSD,L]
+RewriteRule ^exotic\-car\-transport\-for\-your\-need/$ https://broadwayautotransport.com/blog/exotic-car-transport-for-your-need [R=301,QSD,L]
+RewriteRule ^open\-vs\-enclosed\-car\-shipping/$ https://broadwayautotransport.com/blog/open-vs-enclosed-car-shipping [R=301,QSD,L]
+RewriteRule ^car\-shipping\-on\-cold\-weather/$ https://broadwayautotransport.com/blog [R=301,QSD,L]
+RewriteRule ^best\-places\-to\-visit\-in\-florida\-for\-2023/$ https://broadwayautotransport.com/blog [R=301,QSD,L]
+
+	#2023-11-22
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+	RewriteRule ^(.*)/$ https://broadwayautotransport.com/$1 [R=301,L]
+
+	RewriteCond %{HTTP:X-Forwarded-Proto} =http [OR]
+	RewriteCond %{HTTP:X-Forwarded-Proto} =""
+	RewriteCond %{HTTPS} !=on
+	RewriteCond %{SERVER_PORT} !^443$
+	RewriteRule ^(.*)$ https://broadwayautotransport.com/$1 [R=301,L]
+	
+	RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+	RewriteRule ^(.*)$ https://broadwayautotransport.com/$1 [R=301,L]
+
+    # Send Requests To Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+
+<filesMatch ".(ico|pdf|flv|jpg|jpeg|png|gif|svg|js|css|swf|woff|woff2|webp)$">
+ Header set Cache-Control "max-age=31536000, public"
+</filesMatch>
+## EXPIRES HEADER CACHING ##
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType image/jpg "access 1 year"
+ExpiresByType image/jpeg "access 1 year"
+ExpiresByType image/gif "access 1 year"
+ExpiresByType image/png "access 1 year"
+ExpiresByType image/svg "access 1 year"
+ExpiresByType text/css "access 1 month"
+ExpiresByType application/pdf "access 1 month"
+ExpiresByType application/javascript "access 1 month"
+ExpiresByType application/x-javascript "access 1 month"
+ExpiresByType application/x-shockwave-flash "access 1 month"
+ExpiresByType image/x-icon "access 1 year"
+ExpiresDefault "access 2 days"
+</IfModule>
+## EXPIRES HEADER CACHING
