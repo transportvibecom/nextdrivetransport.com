@@ -27,15 +27,19 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //         view()->share('services',
-        // //            Service::orderBy('id', 'asc')->get());
-        //             Service::orderBy('order', 'asc')->get());
+        view()->share(
+            'services',
+            //            Service::orderBy('id', 'asc')->get());
+            Service::orderBy('order', 'asc')->get()
+        );
 
-        //         view()->share('destinationList',
-        //             Destination::orderBy('title', 'asc')->get()->pluck('slug', 'title'));
+        view()->share(
+            'destinationList',
+            Destination::orderBy('title', 'asc')->get()->pluck('slug', 'title')
+        );
 
-        //         view()->share('questions', Question::get());
+        view()->share('questions', Question::get());
 
-        //         view()->share('statistics', Statistic::get());
+        view()->share('statistics', Statistic::get());
     }
 }
