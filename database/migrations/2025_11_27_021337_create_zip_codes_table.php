@@ -22,12 +22,10 @@ return new class extends Migration
             $table->decimal('latitude', 10, 7);
             $table->decimal('longitude', 10, 7);
             $table->timestamps();
-            
-            // Add indexes for better query performance
             $table->index(['zipcode', 'state_code']);
             $table->index('place');
         });
-        
+
         // Add a simple example for testing
         DB::table('zip_codes')->insert([
             'zipcode' => '10001',

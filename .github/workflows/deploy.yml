@@ -1,0 +1,96 @@
+name: Deploy to VPS (Production & Staging)
+
+on:
+  push:
+    branches:
+      - main
+      - staging
+
+jobs:
+  deploy-staging:
+    if: github.ref == 'refs/heads/staging'
+    runs-on: ubuntu-latest
+    name: 🚀 Deploy to Staging
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Deploy to Staging Server
+      uses: appleboy/ssh-action@v0.1.10
+      with:
+        host: ${{ secrets.VPS_HOST }}
+        username: ${{ secrets.VPS_USER }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          set -e
+          cd /var/www/staging.nextdrivetransport.com
+
+          echo "🔹 Switching to staging branch"
+          git fetch origin staging
+          git checkout staging || git checkout -b staging
+          git reset --hard origin/staging
+
+          echo "🔹 Installing PHP dependencies"
+          rm -rf vendor composer.lock
+          composer install --no-dev --optimize-autoloader --no-interaction
+
+          echo "🔹 Running migrations and optimizations"
+          php artisan migrate --force
+          php artisan cache:clear
+          php artisan config:clear
+          php artisan view:clear
+          php artisan route:clear
+          php artisan config:cache
+          php artisan route:cache
+          php artisan view:cache
+
+          echo "🔹 Fixing permissions"
+          sudo chown -R www-data:www-data storage bootstrap/cache
+          sudo chmod -R 775 storage bootstrap/cache
+
+          echo "✅ Staging deployment completed!"
+
+  deploy-production:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    name: 🚀 Deploy to Production
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Deploy to Production Server
+      uses: appleboy/ssh-action@v0.1.10
+      with:
+        host: ${{ secrets.VPS_HOST }}
+        username: ${{ secrets.VPS_USER }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          set -e
+          cd /var/www/nextdrivetransport.com
+
+          echo "🔹 Switching to main branch"
+          git fetch origin main
+          git checkout main || git checkout -b main
+          git reset --hard origin/main
+
+          echo "🔹 Installing PHP dependencies"
+          rm -rf vendor composer.lock
+          composer install --no-dev --optimize-autoloader --no-interaction
+
+          echo "🔹 Running migrations and optimizations"
+          php artisan migrate --force
+          php artisan cache:clear
+          php artisan config:clear
+          php artisan view:clear
+          php artisan route:clear
+          php artisan config:cache
+          php artisan route:cache
+          php artisan view:cache
+
+          echo "🔹 Fixing permissions"
+          sudo chown -R www-data:www-data storage bootstrap/cache
+          sudo chmod -R 775 storage bootstrap/cache
+
+          echo "✅ Production deployment completed!"
