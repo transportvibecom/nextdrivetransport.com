@@ -68,7 +68,7 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
           set -e
-          cd /var/www/nextdrivetransport.com
+          cd /var/www/nextdrivetransport
 
           echo "🔹 Switching to main branch"
           git fetch origin main
